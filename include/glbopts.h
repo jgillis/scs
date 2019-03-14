@@ -71,6 +71,15 @@ extern "C" {
 #define scs_free_ free
 #define scs_malloc_ malloc
 #define scs_calloc_ calloc
+#elif defined CASADI
+#include <stdio.h>
+#include <stdlib.h>
+extern int casadi_printf(const char  *fmt, ...);
+#define printf casadi_printf
+#define scs_printf casadi_printf
+#define scs_free_ free
+#define scs_malloc_ malloc
+#define scs_calloc_ calloc
 #else
 #include <stdio.h>
 #include <stdlib.h>
@@ -93,7 +102,7 @@ extern "C" {
     /* #define scs_int long */
 #endif
 #else
-    typedef int scs_int;
+    typedef long long int scs_int;
 #endif
 
 #ifndef FLOAT
