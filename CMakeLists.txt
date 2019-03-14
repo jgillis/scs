@@ -21,7 +21,7 @@ add_library(superscs STATIC
   src/unit_test_util.c
   src/util.c)
 
-target_link_libraries(superscs linsys m)
+target_link_libraries(superscs linsys m casadi)
 
 target_include_directories(superscs PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
